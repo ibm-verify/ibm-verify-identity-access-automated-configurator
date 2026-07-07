@@ -1,0 +1,19 @@
+defaults:
+  jiraProjectKey: ISVA
+  jiraIssueTypeName: Task
+  jiraAutoCloseTransitionName: "Done"
+  jiraFields:
+    labels:
+    - "security-scanning"
+    components:
+      - name: "ibmvia-autoconf"
+
+squads:
+- name: development
+  sourceRepositories:
+  - name: ibm-verify-identity-access-automated-configurator
+    sourceRepos: 
+    - name: github.com/ibm-verify/ibm-verify-identity-access-automated-configurator
+      properties:
+      - repository_token_name: github-com-token
+
