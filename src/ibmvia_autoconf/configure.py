@@ -516,7 +516,7 @@ class IVIA_Configurator(object):
                      console_log_level: "AUDIT"
                      accept_client_certs: true
 
-        The complete list of properties that can be set by this key can be found in the `pyivia <https://lachlan-ibm.github.io/pyivia/systemsettings.html#pyivia.core.system.adminsettings.AdminSettings.update>`_ documentation.
+        The complete list of properties that can be set by this key can be found in the `pyivia <https://ibm-verify.github.io/ibm-verify-identity-access-automated-configurator/systemsettings.html#pyivia.core.system.adminsettings.AdminSettings.update>`_ documentation.
         '''
         min_heap_size: typing.Optional[int]
         'The minimum heap size, in megabytes, for the JVM.'

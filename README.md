@@ -4,13 +4,13 @@ yaml file of the required configuration.
 
 This project aims to allow administrators of a Verify Identity Access (IVIA) or IBM Security Verify Access (ISVA) 
 deployment. The configuration is applied using the pyivia python module, which in turn uses the rest API. The 
-[examples](https://lachlan-ibm.github.io/ibmvia_autoconf/examples.html) provides in-depth guides on how to use 
+[examples](https://ibm-verify.github.io/ibm-verify-identity-access-automated-configurator/examples.html) provides in-depth guides on how to use 
 this automation tool.
 
 
 ## Documentation
 Documentation for using this library can be found on 
-[Verify Identity Access Automated Configurator's GitHub pages](https://lachlan-ibm.github.io/ibmvia_autoconf/index.html).
+[Verify Identity Access Automated Configurator's GitHub pages](https://ibm-verify.github.io/ibm-verify-identity-access-automated-configurator/index.html).
 
 
 # Setup

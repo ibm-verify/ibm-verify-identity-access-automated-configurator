@@ -48,10 +48,10 @@ setup(
         'all': ['kubernetes>=12.0.0,!=36.0.0', 'docker']
     },
     project_urls={
-        'Homepage': 'https://github.com/lachlan-ibm/ibmvia_autoconf',
-        'Documentation': 'https://lachlan-ibm.github.io/ibmvia_autoconf',
-        'Source': 'https://github.com/lachlan-ibm/ibmvia_autoconf',
-        'Tracker': 'https://github.com/lachlan-ibm/ibmvia_autoconf/issues'
+        'Homepage': 'https://github.com/ibm-verify/ibm-verify-identity-access-automated-configurator',
+        'Documentation': 'https://ibm-verify.github.io/ibm-verify-identity-access-automated-configurator',
+        'Source': 'https://github.com/ibm-verify/ibm-verify-identity-access-automated-configurator',
+        'Tracker': 'https://github.com/ibm-verify/ibm-verify-identity-access-automated-configurator/issues'
     },
     zip_safe=False,
     cmdclass={
