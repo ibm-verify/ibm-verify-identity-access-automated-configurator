@@ -5,6 +5,7 @@ on:
   push:
     branches:
     - stable
+  workflow_dispatch:
 
 # This job installs dependencies, builds the project's doc, and pushes it to `gh-pages`
 jobs:
