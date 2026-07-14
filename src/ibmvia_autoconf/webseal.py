@@ -243,7 +243,7 @@ class WEB_Configurator(object):
         return needs_create
 
     def _create_wrp_instance(self, runtime, proxy):
-        _logger.debug("Attempting to create {} reverse proxy instance.", proxy.name)
+        _logger.debug(f"Attempting to create {proxy.name} reverse proxy instance.")
         methodArgs = {
                         "inst_name":proxy.name,
                         "host": proxy.host,

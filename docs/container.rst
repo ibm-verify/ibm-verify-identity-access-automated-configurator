@@ -51,14 +51,22 @@ Example
        - p12_file: "rt.mmfa.p12"
          secret: !secret default/isva-secrets:rt-p12-passwd
      cluster:
-       host: "postgresql"
-       port: 5432
-       type: "Postgresql"
-       user: "postgres"
-       password: !secret default/isva-secrets:postgres-passwd
-       ssl: True
-       db_name: "isva"
-
+       config_database:
+         host: "ivia-postgresql"
+         port: 5432
+         type: "postgresql"
+         user: "ivia-dba"
+         password: !secret default/ivia-secrets:postgres-passwd
+         ssl: True
+         db_name: "ivia-cfg"
+       runtime_database:
+         host: "ivia-postgresql"
+         port: 5432
+         type: "postgresql"
+         user: "ivia-dba"
+         password: !secret default/ivia-secrets:postgres-passwd
+         ssl: True
+         db_name: "ivia-hvdb"
 
 .. _container:
 
