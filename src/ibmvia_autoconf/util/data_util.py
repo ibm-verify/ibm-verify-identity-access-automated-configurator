@@ -5,9 +5,9 @@
 import os
 import yaml
 import base64
+import binascii
 import pathlib
 import logging
-import sys
 import tempfile
 import atexit
 
@@ -312,7 +312,11 @@ class CustomLoader(yaml.SafeLoader):
             raise RuntimeError(
                 f"Key '{key}' not found in {resource_type} {namespaceName}"
             )
-        return base64.b64decode(data[key])
+        value = data[key]
+        try:  # Add missing pad characters
+            return base64.b64decode(value + "=" * (-len(value) % 4))
+        except binascii.Error: # Guess the type
+            return bytes(value, "utf-8") if isinstance(value, str) else bytes(value)
     
     def _write_to_unique_temp_file(self, namespaceName, key, contents):
         """
