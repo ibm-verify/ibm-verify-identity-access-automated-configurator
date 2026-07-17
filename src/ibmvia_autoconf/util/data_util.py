@@ -314,14 +314,14 @@ class CustomLoader(yaml.SafeLoader):
         if key in binary_data:
             value = binary_data[key]
             return base64.b64decode(value + "=" * (-len(value) % 4))
-        plain_data = getattr(k8sResource, 'data', {}) or {}
-        if key in plain_data:
-            value = plain_data[key]
+        data = getattr(k8sResource, 'data', {}) or {}
+        if key in data:
+            value = data[key]
             if resource_type == 'secret':
                 return base64.b64decode(value + "=" * (-len(value) % 4))
             return bytes(value, "utf-8") if isinstance(value, str) else bytes(value)
         raise RuntimeError(
-            f"Key '{key}' not found in {resource_type} {namespaceName}"
+            f"Key '{key}' not found in {namespaceName} {resource_type}"
         )
     
     def _write_to_unique_temp_file(self, namespaceName, key, contents):
