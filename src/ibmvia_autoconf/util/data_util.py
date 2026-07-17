@@ -305,14 +305,20 @@ class CustomLoader(yaml.SafeLoader):
         return k8sResource
     
     def _extract_resource_data(self, k8sResource, key, resource_type, namespaceName):
-        """Extract and decode data from K8s resource."""
+        """Extract and decode data from K8s resource.
+
+        Secrets:   data = base64 encoded
+        ConfigMap: data = utf-8 encoded, binary_data = base64 encoded
+        """
         binary_data = getattr(k8sResource, 'binary_data', {}) or {}
         if key in binary_data:
             value = binary_data[key]
             return base64.b64decode(value + "=" * (-len(value) % 4))
-        plain_data  = getattr(k8sResource, 'data', {}) or {}
+        plain_data = getattr(k8sResource, 'data', {}) or {}
         if key in plain_data:
             value = plain_data[key]
+            if resource_type == 'secret':
+                return base64.b64decode(value + "=" * (-len(value) % 4))
             return bytes(value, "utf-8") if isinstance(value, str) else bytes(value)
         raise RuntimeError(
             f"Key '{key}' not found in {resource_type} {namespaceName}"
