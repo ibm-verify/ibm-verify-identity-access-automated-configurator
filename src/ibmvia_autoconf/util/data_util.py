@@ -5,7 +5,6 @@
 import os
 import yaml
 import base64
-import binascii
 import pathlib
 import logging
 import tempfile
@@ -307,16 +306,17 @@ class CustomLoader(yaml.SafeLoader):
     
     def _extract_resource_data(self, k8sResource, key, resource_type, namespaceName):
         """Extract and decode data from K8s resource."""
-        data = getattr(k8sResource, 'data', {})
-        if key not in data:
-            raise RuntimeError(
-                f"Key '{key}' not found in {resource_type} {namespaceName}"
-            )
-        value = data[key]
-        try:  # Add missing pad characters
+        binary_data = getattr(k8sResource, 'binary_data', {}) or {}
+        if key in binary_data:
+            value = binary_data[key]
             return base64.b64decode(value + "=" * (-len(value) % 4))
-        except binascii.Error: # Guess the type
+        plain_data  = getattr(k8sResource, 'data', {}) or {}
+        if key in plain_data:
+            value = plain_data[key]
             return bytes(value, "utf-8") if isinstance(value, str) else bytes(value)
+        raise RuntimeError(
+            f"Key '{key}' not found in {resource_type} {namespaceName}"
+        )
     
     def _write_to_unique_temp_file(self, namespaceName, key, contents):
         """
