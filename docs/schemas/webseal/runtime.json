@@ -166,8 +166,8 @@
   "examples": [
     {
       "runtime": {
-        "policy_server": "remote",
-        "user_registry": "remote",
+        "policy_server": "ldap",
+        "user_registry": "ldap",
         "ldap": {
           "host": "openldap",
           "port": 636,
@@ -180,7 +180,7 @@
         "admin_user": "sec_master",
         "admin_password": "secmaster-passwd",
         "admin_cert_lifetime": 1460,
-        "ssl_compliance": "FIPS 140-2",
+        "ssl_compliance": "fips",
         "isam": {
           "host": "iviaconfig",
           "port": 443
