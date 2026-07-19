@@ -7,7 +7,6 @@ import yaml
 import base64
 import pathlib
 import logging
-import sys
 import tempfile
 import atexit
 
@@ -306,13 +305,22 @@ class CustomLoader(yaml.SafeLoader):
         return k8sResource
     
     def _extract_resource_data(self, k8sResource, key, resource_type, namespaceName):
-        """Extract and decode data from K8s resource."""
-        data = getattr(k8sResource, 'data', {})
-        if key not in data:
-            raise RuntimeError(
-                f"Key '{key}' not found in {resource_type} {namespaceName}"
-            )
-        return base64.b64decode(data[key])
+        """Extract and decode data from K8s resource.
+
+        Secrets:   data = base64 encoded
+        ConfigMap: data = utf-8 encoded, binary_data = base64 encoded
+        """
+        binary_data = getattr(k8sResource, 'binary_data', {}) or {}
+        if key in binary_data:
+            value = binary_data[key]
+            return base64.b64decode(value + "=" * (-len(value) % 4))
+        data = getattr(k8sResource, 'data', {}) or {}
+        if key in data:
+            value = data[key]
+            if resource_type == 'secret':
+                return base64.b64decode(value + "=" * (-len(value) % 4))
+            return bytes(value, "utf-8") if isinstance(value, str) else bytes(value)
+        raise RuntimeError(f"Key '{key}' not found in {namespaceName} {resource_type}")
     
     def _write_to_unique_temp_file(self, namespaceName, key, contents):
         """
