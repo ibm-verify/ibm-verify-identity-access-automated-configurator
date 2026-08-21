@@ -494,8 +494,8 @@ class WEB_Configurator(object):
             'Specifies the local IP address that the Reverse Proxy uses when the system communicates with the target back-end server.'
             query_contents: str
             'Provides the Reverse Proxy with the correct name of the query_contents program file and where to find the file.'
-            case_sensitive_url: str
-            'Specifies whether the Reverse Proxy server treats URLs as case sensitive.'
+            case_insensitive_url: str
+            'Specifies whether the Reverse Proxy server treats URLs as case insensitive.'
             windows_style_url: str
             'Specifies whether Windows style URLs are supported.'
             proxy_hostname: str
@@ -1542,7 +1542,7 @@ class WEB_Configurator(object):
                     "server_dn": resource_server.server_dn,
                     "local_ip": resource_server.local_ip,
                     "query_contents": resource_server.query_contents,
-                    "case_sensitive_url": resource_server.case_sensitive_url,
+                    "case_insensitive_url": resource_server.case_insensitive_url,
                     "windows_style_url": resource_server.windows_style_url,
                     "ltpa_keyfile_password": resource_server.ltpa_keyfile_password,
                     "https_port": resource_server.https_port,
@@ -1896,8 +1896,8 @@ class WEB_Configurator(object):
             'Specifies the local IP address that the Reverse Proxy uses when the system communicates with the target back-end server.'
             query_contents: str
             'Provides the Reverse Proxy with the correct name of the query_contents program file and where to find the file. By default, the Windows file is called ``query_contents.exe`` and the UNIX file is called ``query_contents.sh``.'
-            case_sensitive_url: str
-            'Specifies whether the Reverse Proxy server treats URLs as case sensitive. Valid value is ``yes`` or ``no``.'
+            case_insensitive_url: str
+            'Specifies whether the Reverse Proxy server treats URLs as case insensitive. Valid value is ``yes`` or ``no``.'
             windows_style_url: str
             'Specifies whether Windows style URLs are supported. Valid value is ``yes`` or ``no``.'
             ltpa_keyfile_password: typing.Optional[str]
