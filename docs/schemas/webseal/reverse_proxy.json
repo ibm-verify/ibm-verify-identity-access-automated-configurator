@@ -289,9 +289,9 @@
           "type": "string",
           "description": "Provides the Reverse Proxy with the correct name of the query_contents program file and where to find the file."
         },
-        "case_sensitive_url": {
+        "case_insensitive_url": {
           "type": "string",
-          "description": "Specifies whether the Reverse Proxy server treats URLs as case sensitive.",
+          "description": "Specifies whether the Reverse Proxy server treats URLs as case insensitive.",
           "enum": ["yes", "no"]
         },
         "windows_style_url": {
