@@ -1,0 +1,314 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Environment properties &mdash; ibmvia-autoconf  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+      <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Overpass:300,400,600,800" />
+      <link rel="stylesheet" type="text/css" href="_static/schema_doc.css?v=e0b38099" />
+      <link rel="stylesheet" type="text/css" href="_static/schema_overrides.css?v=77d9d3e6" />
+      <link rel="stylesheet" type="text/css" href="_static/table_nowrap.css?v=65c16b2b" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+      <script src="https://use.fontawesome.com/facf9fa52c.js"></script>
+      <script src="_static/schema_doc.min.js?v=c68677a6"></script>
+      <script src="_static/schema_expand_collapse.js?v=66081a6f"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="YAML configuration keywords" href="yamlkeywords.html" />
+    <link rel="prev" title="Welcome to ibmvia-autoconf documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            ibmvia-autoconf
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Environment properties</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#connection">Connection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#external-authentication">External authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#container-orchestration">Container orchestration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#logging">Logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vault">Vault</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="yamlkeywords.html">YAML configuration keywords</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Example Verify Identity Access Configurations (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appliance.html">Appliance Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="container.html">Container Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webseal.html">WebSEAL Reverse Proxy Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="access_control.html">Advanced Access Control Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="federations.html">Federations Configuration</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ibmvia-autoconf</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Environment properties</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/envvars.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="environment-properties">
+<span id="ibmvia-autoconf-env-vars"></span><h1>Environment properties<a class="headerlink" href="#environment-properties" title="Link to this heading"></a></h1>
+<p>In addition to the supplied YAML configuration, some properties can alternatively be set as environment variables.
+If these variables are set, they take priority over values set in configuration files.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35.8%" />
+<col style="width: 16.8%" />
+<col style="width: 47.4%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Variable</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">IVIA_CONFIG_BASE</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">$HOME</span></code></p></td>
+<td><p>Root directory for all configuration files</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">IVIA_CONFIG_YAML</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">config.yaml</span></code></p></td>
+<td><p>YAML configuration file to deploy</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">IVIA_MGMT_BASE_URL</span></code></p></td>
+<td><p><em>(required)</em></p></td>
+<td><p>Management interface URL</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">IVIA_MGMT_USER</span></code></p></td>
+<td><p><em>(none)</em></p></td>
+<td><p>Admin user; omit to use <code class="docutils literal notranslate"><span class="pre">IVIA_MGMT_PWD</span></code> as a bearer token</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">IVIA_MGMT_PWD</span></code></p></td>
+<td><p><em>(required)</em></p></td>
+<td><p>Password or bearer API access token</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">IVIA_MGMT_OLD_PWD</span></code></p></td>
+<td><p><em>(none)</em></p></td>
+<td><p>Previous password if a password change is required</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">IVIA_EXT_USER</span></code></p></td>
+<td><p><em>(none)</em></p></td>
+<td><p>External (federated) user after management_authorization is configured</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">IVIA_EXT_PWD</span></code></p></td>
+<td><p><em>(none)</em></p></td>
+<td><p>External (federated) password</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">IVIA_PUBLISH_SNAPSHOT_SLEEP</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
+<td><p>Seconds to wait after publishing a snapshot</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">IVIA_KUBERNETES_YAML_CONFIG</span></code></p></td>
+<td><p><em>(none)</em></p></td>
+<td><p>Kubernetes cluster config file for kubectl (K8s only)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">KUBERNETES_CLIENT_SLEEP</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
+<td><p>Seconds to wait after requesting a container restart (K8s only)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">IVIA_DOCKER_COMPOSE_CONFIG</span></code></p></td>
+<td><p><em>(none)</em></p></td>
+<td><p>Docker Compose config file (Docker Compose only)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">IVIA_CONFIGURATOR_LOG_LEVEL</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INFO</span></code></p></td>
+<td><p>Log level: <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> <code class="docutils literal notranslate"><span class="pre">INFO</span></code> <code class="docutils literal notranslate"><span class="pre">WARNING</span></code> <code class="docutils literal notranslate"><span class="pre">ERROR</span></code> <code class="docutils literal notranslate"><span class="pre">CRITICAL</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">IVIA_CONFIGURATOR_LOG_FORMAT</span></code></p></td>
+<td><p><em>(standard)</em></p></td>
+<td><p>Log format string, or json for JSON output</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">IVIA_CONFIGURATOR_LOG_FILE</span></code></p></td>
+<td><p>stdout</p></td>
+<td><p>Fully-qualified path to write logs to</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">IVIA_TRACK_API_FAILURES</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+<td><p>Collect and summarize failed API calls on exit</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">IVIA_HASHIVAULT_BASE</span></code></p></td>
+<td><p><em>(none)</em></p></td>
+<td><p>Hashicorp Vaule base URL to fetch secrets from</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">IVIA_HASHIVAULT_TOKEN</span></code></p></td>
+<td><p><em>(none)</em></p></td>
+<td><p>token to fetch secrets from the Hashicorp Vault service</p></td>
+</tr>
+</tbody>
+</table>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading"></a></h2>
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">IVIA_CONFIG_BASE</span></code></dt><dd><p>Root directory of all configuration files for the deployment. Can contain YAML files, HTML templates,
+JavaScript mapping rules, and XML files.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Defaults to the user’s <code class="docutils literal notranslate"><span class="pre">$HOME</span></code> directory if not set.</p>
+</div>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">IVIA_CONFIG_YAML</span></code></dt><dd><p>YAML configuration file to deploy. Can be an absolute path or relative to <code class="docutils literal notranslate"><span class="pre">IVIA_CONFIG_BASE</span></code>.
+Defaults to <code class="docutils literal notranslate"><span class="pre">config.yaml</span></code> inside <code class="docutils literal notranslate"><span class="pre">IVIA_CONFIG_BASE</span></code>.</p>
+</dd>
+</dl>
+</section>
+<section id="connection">
+<h2>Connection<a class="headerlink" href="#connection" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">IVIA_MGMT_BASE_URL</span></code></dt><dd><p>URL of the Verify Identity Access Local Management Interface, including scheme, host, and non-standard port.
+Example: <code class="docutils literal notranslate"><span class="pre">https://127.0.0.2:9443</span></code></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">IVIA_MGMT_USER</span></code></dt><dd><p>Admin user to perform configuration as. Omit to treat <code class="docutils literal notranslate"><span class="pre">IVIA_MGMT_PWD</span></code> as a bearer API access token.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">IVIA_MGMT_PWD</span></code></dt><dd><p>Password or bearer API access token for authentication.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">IVIA_MGMT_OLD_PWD</span></code></dt><dd><p>Previous password for <code class="docutils literal notranslate"><span class="pre">IVIA_MGMT_USER</span></code>, required only when a password change is being applied.</p>
+</dd>
+</dl>
+</section>
+<section id="external-authentication">
+<h2>External authentication<a class="headerlink" href="#external-authentication" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">IVIA_EXT_USER</span></code></dt><dd><p>External (federated) user to act as after the <code class="docutils literal notranslate"><span class="pre">management_authorization</span></code> feature has been configured.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">IVIA_EXT_PWD</span></code></dt><dd><p>External (federated) password for <code class="docutils literal notranslate"><span class="pre">IVIA_EXT_USER</span></code>.</p>
+</dd>
+</dl>
+</section>
+<section id="container-orchestration">
+<h2>Container orchestration<a class="headerlink" href="#container-orchestration" title="Link to this heading"></a></h2>
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">IVIA_PUBLISH_SNAPSHOT_SLEEP</span></code></dt><dd><p>Seconds to wait after publishing a configuration snapshot, to allow replication or container stabilisation.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">IVIA_KUBERNETES_YAML_CONFIG</span></code></dt><dd><p>Kubernetes cluster config file for <code class="docutils literal notranslate"><span class="pre">kubectl</span></code> commands. Must have permission to restart deployments and pods
+in the Verify Identity Access namespace. Absolute path or relative to <code class="docutils literal notranslate"><span class="pre">IVIA_CONFIG_BASE</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Applies only to Container deployments using Kubernetes orchestration.</p>
+</div>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">KUBERNETES_CLIENT_SLEEP</span></code></dt><dd><p>Seconds to wait after requesting a runtime container restart, to allow containers to fetch and apply the
+latest snapshot.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Applies only to Container deployments using Kubernetes orchestration.</p>
+</div>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">IVIA_DOCKER_COMPOSE_CONFIG</span></code></dt><dd><p>Docker Compose config file for <code class="docutils literal notranslate"><span class="pre">docker-compose</span></code> commands. Absolute path or relative to <code class="docutils literal notranslate"><span class="pre">IVIA_CONFIG_BASE</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Applies only to Container deployments using Docker Compose orchestration.</p>
+</div>
+</dd>
+</dl>
+</section>
+<section id="logging">
+<h2>Logging<a class="headerlink" href="#logging" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">IVIA_CONFIGURATOR_LOG_LEVEL</span></code></dt><dd><p>Logging level for the autoconf tool. Default: <code class="docutils literal notranslate"><span class="pre">INFO</span></code>.
+Valid values: <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code>, <code class="docutils literal notranslate"><span class="pre">INFO</span></code>, <code class="docutils literal notranslate"><span class="pre">WARNING</span></code>, <code class="docutils literal notranslate"><span class="pre">ERROR</span></code>, <code class="docutils literal notranslate"><span class="pre">CRITICAL</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">IVIA_CONFIGURATOR_LOG_FORMAT</span></code></dt><dd><p>Format string for log messages. Default: <code class="docutils literal notranslate"><span class="pre">%(asctime)s</span> <span class="pre">-</span> <span class="pre">%(levelname)s</span> <span class="pre">-</span> <span class="pre">%(message)s</span></code>.
+Set to <code class="docutils literal notranslate"><span class="pre">json</span></code> for JSON-parseable output.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">IVIA_CONFIGURATOR_LOG_FILE</span></code></dt><dd><p>Fully-qualified path to a log file. If not set, logs are written to stdout.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">IVIA_TRACK_API_FAILURES</span></code></dt><dd><p>Set to <code class="docutils literal notranslate"><span class="pre">true</span></code> (default) to collect failed API calls and print a summary on exit.</p>
+</dd>
+</dl>
+</section>
+<section id="vault">
+<h2>Vault<a class="headerlink" href="#vault" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">IVIA_HASHIVAULT_BASE</span></code></dt><dd><p>HashiCorp Vault base URL to fetch secrets when running a configuration yaml.
+This is used along with the provided token by the vault sdk to fetch secrets.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">IVIA_HASHIVAULT_TOKEN</span></code></dt><dd><p>Token to fetch secrets from the HashiCorp Vault service.
+This is used along with the provided base url by the vault sdk to fetch secrets.</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to ibmvia-autoconf documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="yamlkeywords.html" class="btn btn-neutral float-right" title="YAML configuration keywords" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Lachlan Gleeson, IBM.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
