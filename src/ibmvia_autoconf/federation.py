@@ -417,9 +417,12 @@ class FED_Configurator(object):
                 old_poc = optional_list(filter_list('name', poc.name, old_pocs))[0]
                 methodArgs = copy.deepcopy(poc)
                 #Convert keys from snake to camel case, also renaming nested key if we find it
-                for prop in ["sign_in_callbacks", "local_id_callbacks", "sign_out_callbacks", "authn_policy_callbacks"]:
+                for prop in ["authenticate_callbacks", "sign_in_callbacks", "local_id_callbacks", "sign_out_callbacks", "authn_policy_callbacks"]:
                     if prop in methodArgs:
-                        methodArgs[to_camel_case(prop)] = remap_keys(methodArgs.pop(prop), {"module_reference_id": "moduleReferenceId"})
+                        callbacks = []
+                        for callback in methodArgs[prop]:
+                            callbacks += [remap_keys(callback, {"module_reference_id": "moduleReferenceId"})]
+                        methodArgs[prop] = callbacks
 
                 rsp = None; verb = None
                 if old_poc:

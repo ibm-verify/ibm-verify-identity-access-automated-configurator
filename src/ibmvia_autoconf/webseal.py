@@ -175,7 +175,8 @@ class WEB_Configurator(object):
                 "api": api_config.api,
                 "browser": api_config.browser,
                 "auth_register": api_config.auth_register,
-                "fapi_compliant": api_config.fapi_compliant
+                "fapi_compliant": api_config.fapi_compliant,
+                "load_certificate": api_config.load_certificate
         }
         if api_config.runtime:
             runtime = api_config.runtime
