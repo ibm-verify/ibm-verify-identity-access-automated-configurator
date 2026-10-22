@@ -1,0 +1,17 @@
+<div class="schema-container" id="schema-template_files"><div class=text-right> <button class="btn btn-primary" type=button onclick="expandAllInContainer('schema-template_files')" aria-expanded=false>Expand all</button> <button class="btn btn-primary" type=button onclick="collapseAllInContainer('schema-template_files')" aria-expanded=false>Collapse all</button> </div> <span class="badge badge-dark value-type">Type: array of string</span><br> <span class=description><p>Upload or DELETE files or directories containing HTML which is compatible with the AAC and Federation templating engine. The directory structure of any directories to upload should follow the default top level directories. If you are defining a directory it should contain a trailing <code>/</code>. If you add the <code>DELETE:</code> prefix to a path, then the file or directory will be removed from the IVIA template file system.</p> </span> <span class="badge badge-info no-additional">No Additional Items</span><h4>Each item of this array must be:</h4> <div class=card> <div class="card-body items-definition" id=items> <span class="badge badge-dark value-type">Type: string</span><br> <span class=description><p>File path to an HTML template file ZIP archive; or a <code>DELETE:</code> prefixed string defining a folder/file to delete.</p> </span> </div> </div><br> <div class="badge badge-secondary">Example:</div> <br><div id=root_ex1 class="jumbotron examples"><div class=highlight><pre><span></span><span class=nt>template_files</span><span class=p>:</span>
+<span class="p p-Indicator">-</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">aac/isva_template_files.zip</span>
+<span class="p p-Indicator">-</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">DELETE:C/saml20</span>
+<span class="p p-Indicator">-</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">DELETE:cs</span>
+<span class="p p-Indicator">-</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">DELETE:de</span>
+<span class="p p-Indicator">-</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">DELETE:es</span>
+<span class="p p-Indicator">-</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">DELETE:fr</span>
+<span class="p p-Indicator">-</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">DELETE:hu</span>
+<span class="p p-Indicator">-</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">DELETE:it</span>
+<span class="p p-Indicator">-</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">DELETE:ja</span>
+<span class="p p-Indicator">-</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">DELETE:ko</span>
+<span class="p p-Indicator">-</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">DELETE:pl</span>
+<span class="p p-Indicator">-</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">DELETE:pt_BR</span>
+<span class="p p-Indicator">-</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">DELETE:ru</span>
+<span class="p p-Indicator">-</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">DELETE:zh_CN</span>
+<span class="p p-Indicator">-</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">DELETE:zh_TW</span>
+</pre></div> </div> 
