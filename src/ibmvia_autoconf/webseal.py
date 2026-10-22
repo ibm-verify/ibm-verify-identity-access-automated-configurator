@@ -175,7 +175,8 @@ class WEB_Configurator(object):
                 "api": api_config.api,
                 "browser": api_config.browser,
                 "auth_register": api_config.auth_register,
-                "fapi_compliant": api_config.fapi_compliant
+                "fapi_compliant": api_config.fapi_compliant,
+                "load_certificate": api_config.load_certificate
         }
         if api_config.runtime:
             runtime = api_config.runtime
@@ -1343,6 +1344,17 @@ class WEB_Configurator(object):
                         track_failure('webseal', 'http_transform', rsp, http_transform_file)
                         _logger.error("Failed to create {} HTTP transform rule".format(http_transform_file['name']))
 
+    def ltpa_keyfiles(self, keyfiles):
+        for keyfile in keyfiles:
+            if not keyfile.startswith('/'):
+                kf = config_base_dir() + keyfile
+            rsp = self.web.ltpa.import_keyfile(keyfile)
+            if rsp.success == True:
+                _logger.info(f"Successfully imported the {keyfile} LTPA keyfile")
+            else:
+                track_failure('webseal', 'ltpa_keyfile', rsp, {"file": keyfile})
+                _logger.error(f"Faield to import the {keyfile} LTPA keyfile:\n{rsp.data}")
+
 
     def __create_kerberos_property(self, _id, subsection, name, value):
         rsp = self.web.kerberos.create(_id=_id, name=name, value=value)
@@ -2029,6 +2041,9 @@ class WEB_Configurator(object):
 
         if websealConfig.http_transforms != None:
             self.http_transform(websealConfig.http_transforms)
+
+        if websealConfig.ltpa_keyfiles != None:
+            self.ltpa_keyfiles(websealConfig.ltpa_keyfiles)
 
         if websealConfig.kerberos != None:
             self.kerberos(websealConfig.kerberos)

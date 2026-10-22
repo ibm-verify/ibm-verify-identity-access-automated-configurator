@@ -155,6 +155,16 @@ HTTP Transformation Rules
 
 |br|
 
+.. _webseal_ltpa_keyfiles:
+
+LTPA Keyfiles
+=============
+
+.. raw:: html
+   :file: schema_html/webseal/ltpa.html
+
+|br|
+
 .. _webseal_kerberos:
 
 Kerberos

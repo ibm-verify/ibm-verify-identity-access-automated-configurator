@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/lachlan-ibm/verify-access-configurator/schemas/webseal/ltpa.json",
+  "description": "A LTPA keyfile containing SSO configuration.",
+  "type": "array",
+  "items": {
+    "type": "string",
+    "description": "Path to LTPA keyfile to import."
+  },
+  "examples": [
+    {
+      "ltpa_keyfiles": [
+        "ltpasso.keys"
+      ]
+    }
+  ]
+}

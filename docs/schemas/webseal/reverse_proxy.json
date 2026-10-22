@@ -489,6 +489,11 @@
           "type": "boolean",
           "description": "Configures reverse proxy instance to be FAPI Compliant.",
           "default": false
+        },
+        "load_certificate": {
+          "type": "boolean",
+          "description": "Determines whether the certificate is loaded automatically from the runtime server. Default is true (dynamically load at configuration time).",
+          "default": true
         }
       },
       "required": ["junction", "runtime", "reuse_acls", "reuse_certs"]

@@ -417,9 +417,12 @@ class FED_Configurator(object):
                 old_poc = optional_list(filter_list('name', poc.name, old_pocs))[0]
                 methodArgs = copy.deepcopy(poc)
                 #Convert keys from snake to camel case, also renaming nested key if we find it
-                for prop in ["sign_in_callbacks", "local_id_callbacks", "sign_out_callbacks", "authn_policy_callbacks"]:
+                for prop in ["authenticate_callbacks", "sign_in_callbacks", "local_id_callbacks", "sign_out_callbacks", "authn_policy_callbacks"]:
                     if prop in methodArgs:
-                        methodArgs[to_camel_case(prop)] = remap_keys(methodArgs.pop(prop), {"module_reference_id": "moduleReferenceId"})
+                        callbacks = []
+                        for callback in methodArgs[prop]:
+                            callbacks += [remap_keys(callback, {"module_reference_id": "moduleReferenceId"})]
+                        methodArgs[prop] = callbacks
 
                 rsp = None; verb = None
                 if old_poc:
@@ -959,6 +962,7 @@ class FED_Configurator(object):
                     "realm": partner.configuration.realm,
                     "subject_confirmation_method": partner.configuration.subject_confirmation_method,
                     "use_inclusive_namespaces": partner.configuration.use_inclusive_namespaces,
+                    "want_multiple_attribute_statements": partner.configuration.want_multiple_attribute_statements,
                     "attribute_types": partner.configuration.attribute_types
                 })
             if partnerConfig and partnerConfig.identity_mapping != None:
@@ -1253,7 +1257,7 @@ class FED_Configurator(object):
                 partner.name, json.dumps(partner, indent=4), rsp.data))
 
     def _configure_federation_partner(self, protocol, fed_id, partner):
-        method = {"OIDC": self._configure_oidc_partner,
+        method = {"OIDC10": self._configure_oidc_partner,
                   "SAML2_0": self._configure_saml_partner,
                   "WSFED": self._configure_ws_partner,
                 }.get(protocol, None)
@@ -1488,7 +1492,8 @@ class FED_Configurator(object):
                     "endpoint": config.endpoint,
                     "realm": config.realm,
                     "poc_url": config.point_of_contact_url,
-                    "company_name": config.company_name
+                    "company_name": config.company_name,
+                    "replay_validation": config.replay_validation
                 })
                 if config.assert_settings != None:
                     methodArgs.update({
