@@ -93,10 +93,15 @@
           "type": "string",
           "description": "The type of request to associate with this chain. The request is one of the types that are supported by the WS-Trust specification.",
           "enum": [
-            "validate",
-            "issue",
-            "renew",
-            "cancel"
+            "http://schemas.xmlsoap.org/ws/2005/02/trust/Validate",
+            "http://docs.oasis-open.org/ws-sx/ws-trust/200512/Validate",
+            "http://docs.oasis-open.org/ws-sx/ws-trust/200512/Issue",
+            "http://schemas.xmlsoap.org/ws/2005/02/trust/Issue",
+            "http://schemas.xmlsoap.org/ws/2005/02/trust/KET",
+            "http://schemas.xmlsoap.org/ws/2005/02/trust/Renew",
+            "http://docs.oasis-open.org/ws-sx/ws-trust/200512/Renew",
+            "http://docs.oasis-open.org/ws-sx/ws-trust/200512/Cancel",
+            "http://schemas.xmlsoap.org/ws/2005/02/trust/Cancel"
           ]
         },
         "token_type": {
